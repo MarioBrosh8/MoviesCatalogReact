@@ -1,11 +1,14 @@
 import "./App.css"
+import { Buscador } from "./Components/Buscador"
+import { Crear } from "./Components/Crear"
+import { Listado } from "./Components/Listado"
 
 function App() {
   return (
     <div className="App">
       <header>
         <nav>
-          <div className="logo">CatálogoFlix</div>
+          <div className="logo">BroshFlix</div>
           <ul>
             <li>
               <a href="#inicio">Inicio</a>
@@ -29,14 +32,14 @@ function App() {
           <p>Descubre las mejores películas y series</p>
         </section>
 
+        <section className="buscador">
+          <Buscador></Buscador>
+        </section>
+
         <section className="categoria">
           <h2>Tendencias</h2>
           <div className="fila-peliculas">
-            {[1, 2, 3, 4, 5].map((n) => (
-              <div key={n} className="pelicula">
-                <img src={`https://via.placeholder.com/200x300?text=Película ${n}`} alt={`Película ${n}`} />
-              </div>
-            ))}
+            <Listado /><Listado />
           </div>
         </section>
 
@@ -49,6 +52,10 @@ function App() {
               </div>
             ))}
           </div>
+        </section>
+
+        <section className="Crear">
+          <Crear></Crear>
         </section>
       </main>
 

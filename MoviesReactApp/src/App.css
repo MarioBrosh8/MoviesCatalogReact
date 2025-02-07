@@ -75,14 +75,16 @@ main {
 
 .fila-peliculas {
   display: flex;
-  overflow-x: auto;
+  /* overflow-x: auto; */
   gap: 1rem;
   padding-bottom: 1rem;
 }
 
 .pelicula {
-  flex: 0 0 auto;
+  /* flex: 0 0 auto; */
+  padding: 1.5rem;
   transition: transform 0.3s ease;
+  border: solid .1px #ffffff;
 }
 
 .pelicula:hover {
