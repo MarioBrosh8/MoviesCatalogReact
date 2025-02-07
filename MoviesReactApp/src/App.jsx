@@ -39,7 +39,7 @@ function App() {
         <section className="categoria">
           <h2>Tendencias</h2>
           <div className="fila-peliculas">
-            <Listado /><Listado />
+            <Listado />
           </div>
         </section>
 
