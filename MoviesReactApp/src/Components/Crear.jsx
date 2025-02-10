@@ -25,7 +25,25 @@ export const Crear = () => {
 
         console.log(movie);
 
+        saveinLocalStorage(movie);
+
     };
+
+    const saveinLocalStorage = (movie) => {
+
+        let items = JSON.parse(localStorage.getItem("movie")) || [];
+
+        if(Array.isArray(items)){
+            items.push(movie);
+            movie = items;
+        }else{
+            movie = [movie];
+        }
+
+        localStorage.setItem("movie", JSON.stringify(movie));
+
+        return movie;
+    }
 
     //[title, setTitle] = useState("Placeholder title");
 
