@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { saveinLocalStorage } from "../helpers/saveinStorage.jsx";
 
 export const Crear = () => {
 
@@ -15,7 +16,6 @@ export const Crear = () => {
 
 
         let movie = {
-            ...movieItem,
             id: new Date().getTime(),
             title,
             description
@@ -25,27 +25,10 @@ export const Crear = () => {
 
         console.log(movie);
 
-        saveinLocalStorage(movie);
+        // helper function to save in local storage, it receives the key and the element to save. This function is imported at the beginning of the file.
+        saveinLocalStorage("movies", movie);
 
     };
-
-    const saveinLocalStorage = (movie) => {
-
-        let items = JSON.parse(localStorage.getItem("movie")) || [];
-
-        if(Array.isArray(items)){
-            items.push(movie);
-            movie = items;
-        }else{
-            movie = [movie];
-        }
-
-        localStorage.setItem("movie", JSON.stringify(movie));
-
-        return movie;
-    }
-
-    //[title, setTitle] = useState("Placeholder title");
 
     return (
         <div>
