@@ -20,14 +20,17 @@ export const Listado = () => {
     };
     return (
         <>
-        {movies.map((movie) => {
-                return (<div key={movie.id}>
+
+            {movies != null ? movies.map((movie) => {
+                return (<article key={movies.id} className="fila-peliculas"> 
+                <div key={movie.id} className="pelicula ">
                     <h1>{movie.title}</h1>
                     <p>{movie.description}</p>
-                </div>)
-
+                </div></article>)
             })
-        }
+            : <h2>No hay peliculas para mostrar</h2>
+            }
+
         </>
     )
 }
