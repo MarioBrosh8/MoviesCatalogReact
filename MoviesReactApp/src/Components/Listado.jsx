@@ -1,14 +1,33 @@
+import { useEffect } from "react";
+import { useState } from "react";
+
 export const Listado = () => {
-    const peliculas = [1, 2, 3, 4, 5];
 
+    const [movies, setMovies] = useState([]);
+
+    useEffect(() => {
+        console.log("Se han cargado las peliculas");
+        getMovies();
+
+    }, []);
+
+    const getMovies = () => {
+
+        let parsedMovies = JSON.parse(localStorage.getItem('movies'));
+        console.log(parsedMovies);
+        setMovies(parsedMovies);
+
+    };
     return (
-        
+        <>
+        {movies.map((movie) => {
+                return (<div key={movie.id}>
+                    <h1>{movie.title}</h1>
+                    <p>{movie.description}</p>
+                </div>)
 
-        peliculas.map((n) => (
-            <div key={n} className="pelicula">
-                <img src={`https://via.placeholder.com/200x300?text=Película ${n}`} alt={`Película ${n}`} />
-                <p>{n}</p>
-            </div>
-        ))
+            })
+        }
+        </>
     )
 }
