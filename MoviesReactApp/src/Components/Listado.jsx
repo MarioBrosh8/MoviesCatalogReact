@@ -1,9 +1,8 @@
 import { useEffect } from "react";
-import { useState } from "react";
 
-export const Listado = () => {
+export const Listado = ({ movies, setMovies }) => {
 
-    const [movies, setMovies] = useState([]);
+    //const [movies, setMovies] = useState([]);
 
     useEffect(() => {
         console.log("Se han cargado las peliculas");
@@ -22,13 +21,13 @@ export const Listado = () => {
         <>
 
             {movies != null ? movies.map((movie) => {
-                return (<article key={movies.id} className="fila-peliculas"> 
-                <div key={movie.id} className="pelicula ">
-                    <h1>{movie.title}</h1>
-                    <p>{movie.description}</p>
-                </div></article>)
+                return (<article key={movies.id} className="fila-peliculas">
+                    <div key={movie.id} className="pelicula ">
+                        <h1>{movie.title}</h1>
+                        <p>{movie.description}</p>
+                    </div></article>)
             })
-            : <h2>No hay peliculas para mostrar</h2>
+                : <h2>No hay peliculas para mostrar</h2>
             }
 
         </>

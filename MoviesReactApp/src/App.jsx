@@ -2,8 +2,12 @@ import "./App.css"
 import { Buscador } from "./Components/Buscador"
 import { Crear } from "./Components/Crear"
 import { Listado } from "./Components/Listado"
+import { useState } from "react"
 
 function App() {
+
+  const [movies, setMovies] = useState([]);
+
   return (
     <div className="App">
       <header>
@@ -39,7 +43,7 @@ function App() {
         <section className="categoria">
           <h2>Tendencias</h2>
           <div className="fila-peliculas">
-            <Listado />
+            <Listado movies={movies} setMovies={setMovies} />
           </div>
         </section>
 
@@ -55,7 +59,7 @@ function App() {
         </section>
 
         <section className="Crear">
-          <Crear></Crear>
+          <Crear setMovies={setMovies} />   
         </section>
       </main>
 

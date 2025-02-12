@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { saveinLocalStorage } from "../helpers/saveinStorage.jsx";
 
-export const Crear = () => {
+export const Crear = ({ setMovies }) => {
 
 
     const title = "Placeholder title";
@@ -12,7 +12,7 @@ export const Crear = () => {
 
         const target = e.target;
         const title = target.title.value;
-        const description = target.description.value;  
+        const description = target.description.value;
 
 
         let movie = {
@@ -23,7 +23,12 @@ export const Crear = () => {
 
         setMovie(movie);
 
-        console.log(movie);
+        setMovies(items => {
+            return [
+                ...items,
+                movie
+            ]
+        });
 
         // helper function to save in local storage, it receives the key and the element to save. This function is imported at the beginning of the file.
         saveinLocalStorage("movies", movie);
