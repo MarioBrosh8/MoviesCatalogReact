@@ -40,15 +40,17 @@ function App() {
           <Buscador></Buscador>
         </section>
 
+        <h2>Tendencias</h2>
         <section className="categoria">
-          <h2>Tendencias</h2>
+          
           <div className="fila-peliculas">
             <Listado movies={movies} setMovies={setMovies} />
           </div>
         </section>
 
+        <h2>Populares en CatálogoFlix</h2>
         <section className="categoria">
-          <h2>Populares en CatálogoFlix</h2>
+          
           <div className="fila-peliculas">
             {[6, 7, 8, 9, 10].map((n) => (
               <div key={n} className="pelicula">
