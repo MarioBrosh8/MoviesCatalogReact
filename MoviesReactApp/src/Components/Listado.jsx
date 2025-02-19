@@ -44,7 +44,7 @@ export const Listado = ({ movies, setMovies }) => {
                         <button className="delete" onClick={() => deleteMovie(movie.id)}>Delete</button>
 
                         {edit === movie.id && (
-                            <Editar></Editar>
+                            <Editar movie={movie} ></Editar>
                         )
                         }
 
