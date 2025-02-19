@@ -8,7 +8,6 @@ export const Listado = ({ movies, setMovies }) => {
     const [edit, setEdit] = useState(0);
 
     useEffect(() => {
-        console.log("Se han cargado las peliculas");
         getMovies();
 
     }, []);
@@ -16,8 +15,9 @@ export const Listado = ({ movies, setMovies }) => {
     const getMovies = () => {
 
         let parsedMovies = JSON.parse(localStorage.getItem('movies'));
-        console.log(parsedMovies);
         setMovies(parsedMovies);
+
+        return parsedMovies;
 
     };
 
@@ -34,7 +34,6 @@ export const Listado = ({ movies, setMovies }) => {
 
             {movies != null ? movies.map((movie) => {
                 return (<article key={movies.id} className="fila-peliculas">
-                    cd
                     <div key={movie.id} className="pelicula ">
                         <h1>{movie.title}</h1>
                         <p>{movie.description}</p>
@@ -44,7 +43,7 @@ export const Listado = ({ movies, setMovies }) => {
                         <button className="delete" onClick={() => deleteMovie(movie.id)}>Delete</button>
 
                         {edit === movie.id && (
-                            <Editar movie={movie} ></Editar>
+                            <Editar movie={movie} getMovies={getMovies} setMovies={setMovies} setEdit={setEdit}></Editar>
                         )
                         }
 
