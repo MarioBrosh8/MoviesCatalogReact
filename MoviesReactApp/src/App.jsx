@@ -37,7 +37,7 @@ function App() {
         </section>
 
         <section className="buscador">
-          <Buscador></Buscador>
+          <Buscador movies={movies} setMovies={setMovies} />
         </section>
 
         <h2>Tendencias</h2>
